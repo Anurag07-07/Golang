@@ -71,9 +71,6 @@ func main() {
 		}else{
 			fmt.Println(ans)
 		}
-		if {
-			
-		}
 }
 
 //go run filename to run the file
