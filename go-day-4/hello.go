@@ -52,18 +52,46 @@ func (c circle) area1() float64 {
 	return 3.14 * c.radius * c.radius  
 }
 
-func main() {
-	Circle := circle{radius: 5}
+// func main() {
+// 	Circle := circle{radius: 5}
 
-	var s shape1 = Circle
+// 	var s shape1 = Circle
 
-	fmt.Println("Area:", s.area1())
+// 	fmt.Println("Area:", s.area1())
 
-	// Type Assertion (interface -> concrete type)
-	c, ok := s.(circle)
-	if ok {
-		fmt.Println("Radius is:", c.radius)
-	} else {
-		fmt.Println("Type assertion failed")
+// 	// Type Assertion (interface -> concrete type)
+// 	c, ok := s.(circle)
+// 	if ok {
+// 		fmt.Println("Radius is:", c.radius)
+// 	} else {
+// 		fmt.Println("Type assertion failed")
+// 	}
+// }
+
+/////////////////////////////////////Switch Type///////////////////////////////////////////
+
+// A type switch makes it easy to do several type assertions in a series 
+
+
+func printNumericValue(num interface{}) {
+	switch v := num.(type) {
+	case int:
+		fmt.Printf("Type: %T, Value: %v\n", v, v)
+
+	case string:
+		fmt.Printf("Type: %T, Value: %v\n", v, v)
+
+	case float64:
+		fmt.Printf("Type: %T, Value: %v\n", v, v)
+
+	default:
+		fmt.Printf("Unknown Type: %T, Value: %v\n", v, v)
 	}
+}
+
+func main() {
+	printNumericValue(1)
+	printNumericValue("Hello")
+	printNumericValue(3.14)
+	printNumericValue(true)
 }
